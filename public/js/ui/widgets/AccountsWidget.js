@@ -13,8 +13,14 @@ class AccountsWidget {
    * Если переданный элемент не существует,
    * необходимо выкинуть ошибку.
    * */
-  constructor( element ) {
-
+  constructor(element) {
+    if (element) {
+      this.element = element;
+    } else {
+      throw new Error('Error: element not found');
+    }
+    this.registerEvents();
+    this.update();
   }
 
   /**
@@ -25,7 +31,17 @@ class AccountsWidget {
    * вызывает AccountsWidget.onSelectAccount()
    * */
   registerEvents() {
+    const createAccount = document.querySelector('.create-account');
+    createAccount.addEventListener('click', (e) => {
+      e.preventDefault();
+      App.getModal('newAccount').open();
+    });
 
+    this.element.addEventListener('click', (e) => {
+      if (e.target.closest('.account')) {
+        this.onSelectAccount(e.target.closest('.account'));
+      }
+    });
   }
 
   /**
@@ -39,7 +55,16 @@ class AccountsWidget {
    * метода renderItem()
    * */
   update() {
-
+    if (User.current()) {
+      Account.list(User.current(), (err, response) => {
+        if (response && response.success) {
+          this.clear();
+          response.data.forEach(data => this.renderItem(data));
+        } else {
+          console.log('Ошибка при получении списка счетов');
+        }
+      });
+    }
   }
 
   /**
@@ -48,7 +73,8 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-
+    const allAccount = document.querySelectorAll('.account');
+    [...allAccount].forEach(acc => acc.remove());
   }
 
   /**
@@ -58,8 +84,11 @@ class AccountsWidget {
    * счёта класс .active.
    * Вызывает App.showPage( 'transactions', { account_id: id_счёта });
    * */
-  onSelectAccount( element ) {
-
+  onSelectAccount(element) {
+    const accounts = document.querySelectorAll('.account');
+    [...accounts].forEach(acc => acc.classList.remove('active'));
+    element.classList.add('active');
+    App.showPage('transactions', {account_id: `${element.dataset.id}`});
   }
 
   /**
@@ -67,8 +96,17 @@ class AccountsWidget {
    * отображения в боковой колонке.
    * item - объект с данными о счёте
    * */
-  getAccountHTML(item){
-
+  getAccountHTML(item) {
+    const li = document.createElement('li');
+    li.classList.add('account');
+    li.dataset.id = `${item.id}`;
+    li.innerHTML = `
+      <a href="#">
+        <span>${item.name}</span> /
+        <span>${item.sum} ₽</span>
+      </a>
+    `;
+    return li;
   }
 
   /**
@@ -77,7 +115,9 @@ class AccountsWidget {
    * AccountsWidget.getAccountHTML HTML-код элемента
    * и добавляет его внутрь элемента виджета
    * */
-  renderItem(data){
-
+  renderItem(data) {
+    const accountsPanel = document.querySelector('.accounts-panel');
+    const newAccount = this.getAccountHTML(data);
+    accountsPanel.append(newAccount);
   }
 }
