@@ -27,11 +27,12 @@ class Modal {
    * */
 
   registerEvents() {
-    this.element.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (e.target.closest('[data-dismiss="modal"]')) {
+    const closeBtn = document.querySelectorAll('[data-dismiss="modal"]');
+    [...closeBtn].forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
         this.onClose();
-      }
+      });
     });
   }
 

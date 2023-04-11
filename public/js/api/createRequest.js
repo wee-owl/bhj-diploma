@@ -2,7 +2,7 @@
  * Основная функция для совершения запросов
  * на сервер.
  * */
-const createRequest = ({url, data = {}, method, callback}) => {
+const createRequest = ({url, data = {}, method, callback = () => {}}) => {
   const xhr = new XMLHttpRequest();
   const formData = new FormData();
   xhr.responseType = 'json';
@@ -12,6 +12,7 @@ const createRequest = ({url, data = {}, method, callback}) => {
     sendURL = `${url}?`;
     for (let [key, value] in Object.entries(data)) {
       sendURL += `${key}=${value}&`;
+      //  https://example.com?mail=ivan@biz.pro&password=odinodin
     }
     sendURL.slice(0, -1);
   } else {
@@ -22,7 +23,11 @@ const createRequest = ({url, data = {}, method, callback}) => {
 
   try {
     xhr.open(method, sendURL);
-    xhr.send(formData);
+    if (method == 'GET') {
+      xhr.send();
+    } else {
+      xhr.send(formData);
+    }
   }
   catch (err) {
     callback(err);
@@ -33,7 +38,7 @@ const createRequest = ({url, data = {}, method, callback}) => {
       callback(err);
       console.log(xhr.status, xhr.responseText);
     } else {
-      callback(xhr.response);
+      callback(null, xhr.response);
     }
   }
 };
