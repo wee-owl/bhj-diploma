@@ -61,7 +61,7 @@ class AccountsWidget {
           this.clear();
           response.data.forEach(data => this.renderItem(data));
         } else {
-          console.log('Ошибка при получении списка счетов');
+          console.log('Ошибка при получении списка счетов', response.error);
         }
       });
     }
