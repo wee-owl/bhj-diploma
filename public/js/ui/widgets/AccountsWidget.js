@@ -88,7 +88,6 @@ class AccountsWidget {
     const accounts = document.querySelectorAll('.account');
     [...accounts].forEach(acc => acc.classList.remove('active'));
     element.classList.add('active');
-    document.querySelector('.remove-account').disabled = false;
     App.showPage('transactions', {account_id: `${element.dataset.id}`});
   }
 
