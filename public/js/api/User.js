@@ -109,6 +109,7 @@ class User {
       callback: (err, response) => {
         if (response && response.success) {
           this.unsetCurrent();
+          location.reload();
         } else {
           console.log(response.error);
         };

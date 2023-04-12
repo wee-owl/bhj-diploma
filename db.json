@@ -49,6 +49,16 @@
       "name": "random",
       "user_id": "1kgm2g9oklgdn1tfs",
       "id": "1kgm2gh7glgdnenbo"
+    },
+    {
+      "name": "zp",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "id": "1kgm2gehwlgdp5eyp"
+    },
+    {
+      "name": "alfa",
+      "user_id": "1kgm2gj7klgdlh0jd",
+      "id": "1kgm2glp8lgdpfo1h"
     }
   ],
   "transactions": [
@@ -204,6 +214,69 @@
       "account_id": "1kgm2gkjwlgdn5i18",
       "user_id": "1kgm2gj7klgdlh0jd",
       "created_at": "2023-04-12T12:02:15.692Z"
+    },
+    {
+      "id": "1kgm2g5yolgdp5std",
+      "type": "income",
+      "name": "zp",
+      "sum": 25000,
+      "account_id": "1kgm2gk4klgdn25hv",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-12T12:58:04.704Z"
+    },
+    {
+      "id": "1kgm2g2oclgdp67ly",
+      "type": "expense",
+      "name": "shop",
+      "sum": 6000,
+      "account_id": "1kgm2gk4klgdn25hv",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-12T12:58:23.877Z"
+    },
+    {
+      "id": "1kgm2gzglgdp6i34",
+      "type": "income",
+      "name": "random",
+      "sum": 62100,
+      "account_id": "1kgm2gh7glgdnenbo",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-12T12:58:37.455Z"
+    },
+    {
+      "id": "1kgm2gmaclgdp72r5",
+      "type": "expense",
+      "name": "trip",
+      "sum": 45000,
+      "account_id": "1kgm2gh7glgdnenbo",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-12T12:59:04.240Z"
+    },
+    {
+      "id": "1kgm2g9solgdpg9ly",
+      "type": "income",
+      "name": "freelance",
+      "sum": 30000,
+      "account_id": "1kgm2glp8lgdpfo1h",
+      "user_id": "1kgm2gj7klgdlh0jd",
+      "created_at": "2023-04-12T13:06:13.029Z"
+    },
+    {
+      "id": "1kgm2gab8lgdphqsz",
+      "type": "expense",
+      "name": "utilities",
+      "sum": 7800,
+      "account_id": "1kgm2glp8lgdpfo1h",
+      "user_id": "1kgm2gj7klgdlh0jd",
+      "created_at": "2023-04-12T13:07:21.970Z"
+    },
+    {
+      "id": "1kgm2gcdslgdpici9",
+      "type": "expense",
+      "name": "food",
+      "sum": 13000,
+      "account_id": "1kgm2glp8lgdpfo1h",
+      "user_id": "1kgm2gj7klgdlh0jd",
+      "created_at": "2023-04-12T13:07:50.096Z"
     }
   ]
 }
