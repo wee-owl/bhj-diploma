@@ -6,23 +6,20 @@ const createRequest = ({url, data = {}, method, callback = () => {}}) => {
   const xhr = new XMLHttpRequest();
   const formData = new FormData();
   xhr.responseType = 'json';
-  let sendURL = url;
 
   if (method == 'GET') {
-    sendURL = `${url}?`;
-    for (let [key, value] in Object.entries(data)) {
-      sendURL += `${key}=${value}&`;
-      //  https://example.com?mail=ivan@biz.pro&password=odinodin
+  //  https://example.com?mail=ivan@biz.pro&password=odinodin
+    for (let key in data) {
+      url += `?${key}=${data[key]}&`;
     }
-    sendURL.slice(0, -1);
   } else {
-    for (let [key, value] in Object.entries(data)) {
-      formData.append(key, value);
+    for (key in data) {
+      formData.append(key, data[key]);
     }
   }
 
   try {
-    xhr.open(method, sendURL);
+    xhr.open(method, url);
     if (method == 'GET') {
       xhr.send();
     } else {
