@@ -46,9 +46,9 @@
       "id": "1kgm2gkjwlgdn5i18"
     },
     {
-      "name": "random",
+      "name": "shop",
       "user_id": "1kgm2g9oklgdn1tfs",
-      "id": "1kgm2gh7glgdnenbo"
+      "id": "1kgm2g8v4lglva6e6"
     }
   ],
   "transactions": [
@@ -204,6 +204,42 @@
       "account_id": "1kgm2gkjwlgdn5i18",
       "user_id": "1kgm2gj7klgdlh0jd",
       "created_at": "2023-04-12T12:02:15.692Z"
+    },
+    {
+      "id": "1kgm2gceolgluuvmj",
+      "type": "income",
+      "name": "zp",
+      "sum": 15000,
+      "account_id": "1kgm2gk4klgdn25hv",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-18T05:59:42.234Z"
+    },
+    {
+      "id": "1kgm2g1bslglv2j9i",
+      "type": "expense",
+      "name": "coffee",
+      "sum": 250,
+      "account_id": "1kgm2gk4klgdn25hv",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-18T06:05:39.461Z"
+    },
+    {
+      "id": "1kgm2gaiclglvblb3",
+      "type": "income",
+      "name": "income",
+      "sum": 6000,
+      "account_id": "1kgm2g8v4lglva6e6",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-18T06:12:42.014Z"
+    },
+    {
+      "id": "1kgm2gixklglvcrn3",
+      "type": "expense",
+      "name": "new kettle",
+      "sum": 4500,
+      "account_id": "1kgm2g8v4lglva6e6",
+      "user_id": "1kgm2g9oklgdn1tfs",
+      "created_at": "2023-04-18T06:13:36.879Z"
     }
   ]
 }

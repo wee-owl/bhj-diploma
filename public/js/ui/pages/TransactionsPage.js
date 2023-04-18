@@ -58,12 +58,12 @@ class TransactionsPage {
   removeAccount() {
     if (!this.lastOptions) return
     if (confirm('Вы действительно хотите удалить счёт?')) {
-      console.log(this.lastOptions.account_id);
-      Account.remove(this.lastOptions.account_id, (err, response) => {
+      Account.remove({id: this.lastOptions.account_id}, (err, response) => {
         console.log(response)
         if (response && response.success) {
           App.updateWidgets();
           App.updateForms();
+          this.clear();
         } else {
           console.log('Ошибка удаления счета', response.error);
         }
@@ -152,7 +152,7 @@ class TransactionsPage {
     const div = document.createElement('div');
     div.classList.add('transaction');
     div.classList.add('row');
-    div.classList.add(`'transaction_${item.type}'`);
+    div.classList.add(`transaction_${item.type}`);
     div.innerHTML = `
       <div class="col-md-7 transaction__details">
         <div class="transaction__icon">
